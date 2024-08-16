@@ -1,0 +1,24 @@
+<div class="home">
+    <div class="header">
+        <div class="image" (click)="homwMode()">
+            <img src="assets/image/center.png" width="100px" height="100px" alt="center">
+        </div>
+        <h1>ENGLISH COURSES</h1>
+        <div class="login" *ngIf="!checkUserValid()">
+            <mat-button-toggle-group name="fontStyle" aria-label="Font Style" [(ngModel)]="selected">
+                <mat-button-toggle value="bold" (change)="loginMode()">LOG IN</mat-button-toggle>
+                <mat-button-toggle value="italic" (change)="signInMode()">REGISTER</mat-button-toggle>
+            </mat-button-toggle-group>
+        </div>
+
+        <div class="user" *ngIf="checkUserValid()">
+            <mat-form-field>
+                <mat-label>{{( auth.currentUser$ | async )?.email }}</mat-label>
+                <mat-select #select (selectionChange)="logOut($event, select)">
+                    <mat-option value="logout">Log out</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,56 @@
+<div class="signin">
+    <form class="form-group" (ngSubmit)="onSubmitSignin()" [formGroup]="formSingin">
+        
+        <div>
+            <label>User Name </label>
+            <br />
+
+            <input class="form-control" type="text" formControlName="userName" placeholder="Enter User Name" required
+                />
+
+            <div *ngIf="userName?.invalid && (userName?.touched || userName?.dirty)" class="alert alert-danger mt-1" role="alert">
+                <div *ngIf="userName?.errors?.['required']">
+                    User Name is required.
+                </div>
+
+                <div *ngIf="userName?.errors?.['minlength']">
+                    Name must be at least 3 characters long.
+                </div>
+
+            </div>
+        </div>
+        <br />
+
+        
+        <div>
+            <label>Email </label>
+            <br />
+            <input class="form-control" formControlName="emailSignin" type="email" placeholder="Enter Email" required />
+
+            <div *ngIf="emailSignin?.invalid && ( emailSignin?.touched || emailSignin?.dirty)" class="alert alert-danger mt-1">
+                <div *ngIf="emailSignin?.errors?.['required']">Email is required.</div>
+                <div *ngIf="emailSignin?.errors?.['email']">Email must be a valid email address.</div>
+            </div>
+        </div>
+        <br />
+
+       
+       <div>
+            <label>Password</label>
+            <br />
+            <input class="form-control" formControlName="passwordSignin" type="text" placeholder="Enter Your Password"
+                required />
+
+            <div *ngIf="passwordSignin?.invalid && (passwordSignin?.touched ||passwordSignin?.dirty)" class="alert alert-danger mt-1">
+                <div *ngIf="passwordSignin?.errors?.['required']">Password is required.</div>
+            </div>
+        </div>
+        <br />
+
+        <button type="submit" class="btn btn-primary" [disabled]="formSingin.invalid">Register</button>
+        <div class="failRegister">
+            <br>
+            {{error}}
+        </div>
+    </form>
+</div>
