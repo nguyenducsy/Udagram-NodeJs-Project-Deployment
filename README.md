@@ -1,17 +1,15 @@
 # UDAGRAM Project
 
 ## Description
-UDAGRAM is a full-stack project to create a English Center website that help Fsofter register and learn English onine. Curently,  this website has main functions:
+UDAGRAM is a full-stack project to create a English Midpoint website that help Fsofter register and learn English onine. Curently,  this website has main functions:
 - Register Student
 - Login/Log out
 - Show all information about courses
 - Register course on the table of courses
 - Show registered courses 
 
-### Link to the website: http://udagramfe.s3-website-us-east-1.amazonaws.com/ 
 
-
-### Link Github: https://github.com/LeThai98/UdagramFullstack 
+### Link Github: https://github.com/nguyenducsy/Udagram-NodeJs-Project-Deployment 
 Author: Le Hong Thai
 
 ## Technology
@@ -67,16 +65,16 @@ To run the project, we need config some Environment Variables in the created .en
 
 ## AWS Cloud Services
 - DB:
-    - RDS Host: udagram.cwfxz8nf1xrj.us-east-1.rds.amazonaws.com
+    - RDS Host: database-1.cis7fzfi1nuk.us-east-1.rds.amazonaws.com
     - Port: 5432
-    - Database Name: udagram
+    - Database Name: database-1
 
 - Back-end:
     - Platform: NodeJS 18 run on Linux
-    - Elastic Beanstalk URL : http://myudagramapi-env.eba-nmmjmkts.us-east-1.elasticbeanstalk.com/ 
+    - Elastic Beanstalk URL : http://udagram-lasted-env.eba-4bxkacbt.us-east-1.elasticbeanstalk.com
 
 - Front-end:
-    -  S3 Endpoint URL: http://udagramfe.s3-website-us-east-1.amazonaws.com/
+    -  S3 Endpoint URL: http://udagram-last.s3-website-us-east-1.amazonaws.com
 
 ## Pipeline - CircleCI
 The sequence jobs: 
@@ -124,7 +122,7 @@ Run Unit-test: `npm run frontend:test`
 *** Maybe there is the different creating zip file on Mac/Window/Linux. Please research and config `build` script in the package.json file in the api project to run poperly. 
 
 - Window:
-` "build": "npm install . && npm run clean && tsc && cp -rf src/config www/config && cp package.json www/package.json && cd www && zip a -tzip Archive.zip . && cd .."  `
+` "build": "npm install . && npm run clean && tsc && cp -rf src/config www/config  && cp .npmrc www/.npmrc && cp package.json www/package.json && cd www && 7z a Archive.zip . && cd ..`
 
 - Mac:
 ` "build": "npm install . && npm run clean && tsc && cp -rf src/config www/config && cp package.json www/package.json && cd www && zip -r Archive.zip . && cd .." `
